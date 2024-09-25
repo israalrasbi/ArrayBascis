@@ -29,15 +29,6 @@ public class Main {
 
     }
     public static boolean firstLast6 (int[] arr){
-        //loop through the array
-        for(int i=0; i<= arr.length; i++){
-            //check if the array at position 0 or last is equal to 6
-            if(arr[0] == 6 || arr[arr.length-1] == 6){
-                //if yes return true
-                return true;
-            }
-        }
-        //otherwise, return false
-        return false;
+        return arr[0] == 6 || arr[arr.length-1] == 6;
     }
 }

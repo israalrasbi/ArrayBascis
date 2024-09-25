@@ -51,18 +51,6 @@ public class Main {
         //define variables to take the length of both arrays
         int aLen=a.length;
         int bLen=b.length;
-        //the outer loop will iterate over the items in array a
-        for (int i = 0; i < a.length; i++) {
-            //the inner loop will iterate over the items in array b
-            for (int j = 0; j < a.length; j++) {
-                //check if the start or the end of the arrays match
-                if (a[0] == b[0] || a[aLen-1] == b[bLen-1]) {
-                    //if yes, return true
-                    return true;
-                }
-            }
-        }
-        //otherwise, return false
-        return false;
+        return a[0] == b[0] || a[aLen-1] == b[bLen-1];
     }
 }

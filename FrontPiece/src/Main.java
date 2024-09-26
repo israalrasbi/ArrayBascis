@@ -24,7 +24,7 @@ public class Main {
             }
         }
         //print result
-        System.out.println("Swapped array: " + Arrays.toString(frontPiece(arr)));
+        System.out.println("New array: " + Arrays.toString(frontPiece(arr)));
 
     }
 

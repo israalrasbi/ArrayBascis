@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -6,19 +7,33 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //first take the size of the array
-        System.out.println("Enter the size of the first array, note it should be odd: ");
         int arrSize = 0;
-        if (sc.hasNextInt()) {
-            arrSize = sc.nextInt();
+
+        //keep looping until the user enter a valid input
+        while(true) {
+            //use try-catch blocks for error handling
+            try{
+                //first take the size of the array
+                System.out.println("Enter the size of the first array, note it should be odd: ");
+                arrSize = sc.nextInt();
+
+
+                //initialize the array size depending on the user input
+                //check that the array size if odd, if even ask again
+                if(arrSize % 2 == 0) {
+                    System.out.println("The array size should be odd, try again!");
+                }else{
+                    //if the array size is odd, then exit the loop
+                    break;
+                }
+            }catch (InputMismatchException e) {
+                System.out.println("Invalid input, try again!");
+                //clear the user choice
+                sc.next();
+            }
+
         }
 
-        //initialize the array size depending on the user input
-        //check that the array size if odd, if even stop the program
-        if(arrSize % 2 == 0) {
-            System.out.println("The array size should be odd");
-            return;
-        }
         //if the array size is odd, then initialize the array
         int[] arr = new int[arrSize];
         //ask the user to enter the elements
@@ -29,7 +44,7 @@ public class Main {
                 arr[i] = sc.nextInt();
             }
         }
-        //print result 
+        //print result
         System.out.println("The maximum element is: " +maxTriple(arr));
 
 

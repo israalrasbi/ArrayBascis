@@ -6,54 +6,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //first take the size of the array
+
+        //read the first array
         System.out.println("Enter the size of the first array: ");
-        int arrSize1 = 0;
-        if (sc.hasNextInt()) {
-            arrSize1 = sc.nextInt();
-        }
+        int arrSize1 = sc.nextInt();
+        //call the readArray function to add the elements
+        int[] a = readArray(sc, arrSize1, "first");
 
-        //initialize the array size depending on the user input
-        int[] a = new int[arrSize1];
-        if (a.length > 0) {
-            //ask the user to enter the elements
-            System.out.println("Enter the elements of the first array: ");
-            //add the elements
-            for (int i = 0; i < arrSize1; i++) {
-                if (sc.hasNextInt()) {
-                    a[i] = sc.nextInt();
-                }
-            }
-        }
-
-
-
-        //take the size of the array
+        //read the second array
         System.out.println("Enter the size of the second array: ");
-        int arrSize2 = 0;
-        if (sc.hasNextInt()) {
-            arrSize2 = sc.nextInt();
-        }
-
-        //initialize the array size depending on the user input
-        int[] b = new int[arrSize2];
-
-        if(b.length > 0) {
-            //ask the user to enter the elements
-            System.out.println("Enter the elements of the first array: ");
-            //add the elements
-            for (int i = 0; i < arrSize2; i++) {
-                if (sc.hasNextInt()) {
-                    b[i] = sc.nextInt();
-                }
-            }
-        }
+        int arrSize2 = sc.nextInt();
+        int[] b = readArray(sc, arrSize2, "second");
 
         //print the result
         //get the String representation of array
         String strArr = Arrays.toString(front11(a, b));
         System.out.println("New list: " + strArr);
-
 
     }
 
@@ -80,4 +48,26 @@ public class Main {
             return new int[]{a[0], b[0]};
         }
     }
+
+    public static int[] readArray(Scanner sc, int arraySize, String arrayName) {
+        //define the array
+        int[] arr = new int[arraySize];
+        //make sure the array is not empty
+        if (arr.length > 0) {
+            System.out.println("Enter " + arraySize+ " elements to the " + arrayName + " array:");
+            //the user will enter the elements
+            for (int i = 0; i < arraySize; i++) {
+                if (sc.hasNextInt()) {
+                    arr[i] = sc.nextInt();
+                } else {
+                    System.out.println("Invalid input. Please enter integers.");
+                    sc.next(); // clear invalid input
+                    i--; // repeat the input for the current index
+                }
+            }
+        }
+        return arr;
+    }
+
+
 }

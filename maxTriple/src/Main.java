@@ -37,7 +37,7 @@ public class Main {
         //if the array size is odd, then initialize the array
         int[] arr = new int[arrSize];
         //ask the user to enter the elements
-        System.out.println("Enter the elements of the array: ");
+        System.out.printf("Enter %d numbers to the array: ", arrSize);
         //add the elements
         for (int i = 0; i < arrSize; i++) {
             if (sc.hasNextInt()) {

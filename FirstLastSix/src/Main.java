@@ -8,18 +8,18 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         //first take the size of the array
         System.out.println("Enter the size of the array: ");
-        int arr_size = 0;
+        int arrSize = 0; 
         if (sc.hasNextInt()) {
-            arr_size = sc.nextInt();
+            arrSize = sc.nextInt();
         }
 
         //initialize the array size depending on the user input
-        int[] arr = new int[arr_size];
+        int[] arr = new int[arrSize];
 
         //ask the user to enter the elements
         System.out.println("Enter the elements of the array: ");
         //add the elements
-        for (int i = 0; i < arr_size; i++) {
+        for (int i = 0; i < arrSize; i++) {
             if (sc.hasNextInt()) {
                 arr[i] = sc.nextInt();
             }
